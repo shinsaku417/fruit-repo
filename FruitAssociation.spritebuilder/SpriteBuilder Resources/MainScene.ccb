@@ -166,7 +166,7 @@
 				<key>displayName</key>
 				<string>CCButton</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_playButton</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -186,7 +186,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>1.5</real>
 							<real>0.41999998688697815</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -479,8 +479,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -494,7 +492,7 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_apple</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -515,7 +513,7 @@
 						<key>value</key>
 						<array>
 							<real>0.20000000298023224</real>
-							<real>0.27000001072883606</real>
+							<real>0.17000000178813934</real>
 							<integer>1</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -583,7 +581,7 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_banana</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -604,7 +602,7 @@
 						<key>value</key>
 						<array>
 							<real>0.20000000298023224</real>
-							<real>0.27000001072883606</real>
+							<real>0.37000000476837158</real>
 							<integer>3</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -672,7 +670,7 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_cherry</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -693,7 +691,7 @@
 						<key>value</key>
 						<array>
 							<real>0.20000000298023224</real>
-							<real>0.27000001072883606</real>
+							<real>0.17000000178813934</real>
 							<integer>2</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -761,7 +759,7 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_grapes</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -782,7 +780,7 @@
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>0.10000000149011612</real>
+							<real>0.20000000298023224</real>
 							<integer>3</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -850,7 +848,7 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_lemon</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -871,7 +869,7 @@
 						<key>value</key>
 						<array>
 							<real>0.20000000298023224</real>
-							<real>0.27000001072883606</real>
+							<real>0.37000000476837158</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -939,7 +937,7 @@
 				<key>displayName</key>
 				<string>CCSprite</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_orange</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -960,7 +958,7 @@
 						<key>value</key>
 						<array>
 							<real>0.5</real>
-							<real>0.10000000149011612</real>
+							<real>0.0</real>
 							<integer>1</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -1028,7 +1026,7 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_title</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -1048,7 +1046,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>-1</real>
 							<real>0.41999998688697815</real>
 							<integer>1</integer>
 							<integer>2</integer>
@@ -1222,6 +1220,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

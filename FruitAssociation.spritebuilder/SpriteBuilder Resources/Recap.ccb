@@ -166,7 +166,7 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_highscoreMessage</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -186,7 +186,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>1.5</real>
 							<real>0.43999999761581421</real>
 							<integer>3</integer>
 							<integer>2</integer>
@@ -360,6 +360,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -393,7 +395,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>1.5</real>
 							<real>0.34000000357627869</real>
 							<integer>3</integer>
 							<integer>2</integer>
@@ -580,7 +582,7 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_scoreMessage</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -600,7 +602,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>1.5</real>
 							<real>0.30000001192092896</real>
 							<integer>1</integer>
 							<integer>2</integer>
@@ -807,7 +809,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>1.5</real>
 							<real>0.40000000596046448</real>
 							<integer>1</integer>
 							<integer>2</integer>
@@ -994,7 +996,7 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_gameOver</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -1014,7 +1016,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
+							<real>-1</real>
 							<real>0.14000000059604645</real>
 							<integer>1</integer>
 							<integer>2</integer>
@@ -1201,7 +1203,7 @@
 				<key>displayName</key>
 				<string>CCButton</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_againButton</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -1221,7 +1223,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.50312501192092896</real>
+							<real>1.5</real>
 							<real>0.18000000715255737</real>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1514,8 +1516,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

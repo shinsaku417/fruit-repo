@@ -998,8 +998,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1757,20 +1755,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbTextField.png</string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>backgroundColor|Normal</string>
-						<key>type</key>
-						<string>Color3</string>
-						<key>value</key>
-						<array>
-							<real>0.5196039080619812</real>
-							<real>1</real>
-							<real>0.50181740522384644</real>
-							<real>1</real>
+							<string>ccbResources/ccbButtonNormal.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1781,7 +1766,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbTextField.png</string>
+							<string>ccbResources/ccbButtonNormal.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1791,19 +1776,6 @@
 						<string>Float</string>
 						<key>value</key>
 						<real>0.5</real>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>backgroundColor|Highlighted</string>
-						<key>type</key>
-						<string>Color3</string>
-						<key>value</key>
-						<array>
-							<real>0.51764708757400513</real>
-							<real>1</real>
-							<real>0.50196081399917603</real>
-							<real>1</real>
-						</array>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1989,6 +1961,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

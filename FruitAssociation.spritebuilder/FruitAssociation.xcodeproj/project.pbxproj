@@ -37,6 +37,7 @@
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		F13CCD4119A2FA9900B7C501 /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CCD4019A2FA9900B7C501 /* GamePlay.m */; };
+		F13CCD5819A3EEDB00B7C501 /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CCD5719A3EEDB00B7C501 /* Recap.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,8 @@
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
 		F13CCD3F19A2FA9900B7C501 /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlay.h; sourceTree = "<group>"; };
 		F13CCD4019A2FA9900B7C501 /* GamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlay.m; sourceTree = "<group>"; };
+		F13CCD5619A3EEDB00B7C501 /* Recap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recap.h; sourceTree = "<group>"; };
+		F13CCD5719A3EEDB00B7C501 /* Recap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recap.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +137,8 @@
 				B7378993180767190076A88C /* MainScene.m */,
 				F13CCD3F19A2FA9900B7C501 /* GamePlay.h */,
 				F13CCD4019A2FA9900B7C501 /* GamePlay.m */,
+				F13CCD5619A3EEDB00B7C501 /* Recap.h */,
+				F13CCD5719A3EEDB00B7C501 /* Recap.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
+				F13CCD5819A3EEDB00B7C501 /* Recap.m in Sources */,
 				F13CCD4119A2FA9900B7C501 /* GamePlay.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,

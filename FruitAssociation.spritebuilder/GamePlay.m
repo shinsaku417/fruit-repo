@@ -62,19 +62,29 @@
 - (void)onEnter {
     [super onEnter];
     
+    NSUserDefaults *gameState = [NSUserDefaults standardUserDefaults];
+    [gameState setInteger:0 forKey:@"score"];
+    
     // Custom colors for red and purple
     _red = [CCColor colorWithRed:1 green:0.25 blue:0.25];
     _purple = [CCColor colorWithRed:1 green:0.3 blue:1];
     
+    // Hide left/right buttons
     _left.visible = false;
     _right.visible = false;
+    
+    // Set initial values: 3 Lives, score = 0, 60 seconds
     _life = 3;
     _score = 0;
     _time = 60;
+    
+    // Array of fruits
     _fruitArray = [NSArray arrayWithObjects:@"Apple",@"Orange",@"Banana",@"Lemon",@"Grapes",@"Cherry", nil];
+    
     _throwArray = [NSMutableArray array];
+    
+    // Load random fruit onto the scene, and set answer fruit's name and another choice name
     int rngInitial = arc4random() % 6;
-
     switch(rngInitial) {
         case 0:
             [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/apple.png"]];
@@ -360,11 +370,16 @@
 
 // Go to the next scene after loss
 - (void)nextScene {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-    CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
-    [[CCDirector sharedDirector] presentScene:gameplayScene withTransition:transition];
+    NSUserDefaults *gameState = [NSUserDefaults standardUserDefaults];
+    [gameState setInteger:_score forKey:@"score"];
+    if ([gameState integerForKey:@"score"] > [gameState integerForKey:@"highscore"]) {
+        [gameState setInteger:[gameState integerForKey:@"score"] forKey:@"highscore"];
+    }
+    CCScene *recapScene = [CCBReader loadAsScene:@"Recap"];
+    [[CCDirector sharedDirector] presentScene:recapScene];
 }
 
+// Remove thrown fruits outside of the screen
 - (void)update:(CCTime)delta {
     for (CCSprite *throw in _throwArray) {
         if (throw.position.x < 0 || throw.position.x > 1) {
@@ -373,12 +388,13 @@
     }
 }
 
+// Update timer
+// When time = 0, go to the next scene.
 - (void)timerUpdate {
     _time--;
     _timer.string = [NSString stringWithFormat:@"%i", _time];
     if (_time == 0) {
-        CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-        [[CCDirector sharedDirector] presentScene:gameplayScene];
+        [self nextScene];
     }
 }
 

@@ -28,19 +28,77 @@
     CCLabelTTF *_scoreLabel;
     int _score;
     
-    // Buttons on the scene
+    // Things before pressing ready button
+    CCLabelTTF *_rememberLabel;
+    CCButton *_readyButton;
+    
+    // Things after pressing ready button
+    CCLabelTTF *_previousLabel;
     CCButton *_left;
     CCButton *_right;
 }
 
+// When Entering onto the scene
+// 1. Randomly load 1 fruit onto the scene
+// 2. Set fruitName (answer) to that fruit
+// 3. Set anotherChoiceName (false answer)
 - (void)onEnter {
     [super onEnter];
+    _left.visible = false;
+    _right.visible = false;
     _score = 0;
     _fruitArray = [NSArray arrayWithObjects:@"apple",@"orange",@"banana",@"lemon",@"grapes",@"cherry", nil];
+    int rngInitial = arc4random() % 6;
+    switch(rngInitial) {
+        case 0:
+            [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/apple.png"]];
+            _fruitName = _fruitArray[0];
+            [self setAnotherChoice:0];
+            break;
+        case 1:
+            [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/orange.png"]];
+            _fruitName = _fruitArray[1];
+            [self setAnotherChoice:1];
+            break;
+        case 2:
+            [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/banana.png"]];
+            _fruitName = _fruitArray[2];
+            [self setAnotherChoice:2];
+            break;
+        case 3:
+            [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/lemon.png"]];
+            _fruitName = _fruitArray[3];
+            [self setAnotherChoice:3];
+            break;
+        case 4:
+            [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/grapes.png"]];
+            _fruitName = _fruitArray[4];
+            [self setAnotherChoice:4];
+            break;
+        default:
+            [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/cherry.png"]];
+            _fruitName = _fruitArray[5];
+            [self setAnotherChoice:5];
+    }
+}
+
+// When pressed ready or one of left/right buttons during gameplay
+// 1. Set answers
+// 2. Generate another fruit
+- (void)next {
+    if (_readyButton.visible == true) {
+        _rememberLabel.visible = false;
+        _readyButton.visible = false;
+        
+        _previousLabel.visible = true;
+        _left.visible = true;
+        _right.visible = true;
+    }
+    [self setAnswer];
     [self generateFruit];
 }
 
-// Generate new fruit onto the scene
+// Generate new fruit onto the scene, and set another choice given that fruit
 - (void)generateFruit {
     // random number from 0-5 for displaying random fruit
     int rngDisplay = arc4random() % 6;
@@ -49,42 +107,39 @@
             [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/apple.png"]];
             _fruitName = _fruitArray[0];
             [self setAnotherChoice:0];
-            [self setAnswer];
             break;
         case 1:
             [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/orange.png"]];
             _fruitName = _fruitArray[1];
             [self setAnotherChoice:1];
-            [self setAnswer];
             break;
         case 2:
             [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/banana.png"]];
             _fruitName = _fruitArray[2];
             [self setAnotherChoice:2];
-            [self setAnswer];
             break;
         case 3:
             [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/lemon.png"]];
             _fruitName = _fruitArray[3];
             [self setAnotherChoice:3];
-            [self setAnswer];
             break;
         case 4:
             [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/grapes.png"]];
             _fruitName = _fruitArray[4];
             [self setAnotherChoice:4];
-            [self setAnswer];
             break;
         default:
             [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/cherry.png"]];
             _fruitName = _fruitArray[5];
             [self setAnotherChoice:5];
-            [self setAnswer];
     }
 }
 
+// 1. Generate random number from 0-4 (6 fruits - 1 answer)
+// 2. Create mutablearray copy of fruit array
+// 3. Remove answer fruit from the array
+// 4. Set anotherFruitName with respect to randomly generated number
 - (void)setAnotherChoice:(int)fruitIndex {
-    // random number from 0-4 for displaying random another choice
     int rngName = arc4random() % 5;
     NSMutableArray *fruitRemove = [_fruitArray mutableCopy];
     [fruitRemove removeObjectAtIndex:fruitIndex];
@@ -107,8 +162,9 @@
     }
 }
 
+// 1. Generate random number from 0-1, 0 = answer on left, 1 = answer on right
+// 2. Set labels on the buttons accordingly
 - (void)setAnswer {
-    // random number from 0-1 on which one contains a right answer
     int rngAnswer = arc4random() % 2;
     if (rngAnswer == 0) {
         _answerLeft = true;
@@ -125,20 +181,26 @@
     if (_answerLeft) {
         _score++;
         _scoreLabel.string = [NSString stringWithFormat:@"%i", _score];
+        [self next];
     } else {
         NSLog(@"You lose!");
+        CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+        CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
+        [[CCDirector sharedDirector] presentScene:gameplayScene withTransition:transition];
     }
-    [self generateFruit];
 }
 
 - (void)right {
     if (!_answerLeft) {
         _score++;
         _scoreLabel.string = [NSString stringWithFormat:@"%i", _score];
+        [self next];
     } else {
         NSLog(@"You lose!");
+        CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+        CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
+        [[CCDirector sharedDirector] presentScene:gameplayScene withTransition:transition];
     }
-    [self generateFruit];
 }
 
 @end

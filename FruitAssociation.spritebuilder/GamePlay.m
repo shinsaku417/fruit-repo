@@ -170,10 +170,64 @@
         _answerLeft = true;
         _left.title = _fruitName;
         _right.title = _anotherFruitName;
+        [self setAnswerColor];
+        [self setAnotherColor];
     } else {
         _answerLeft = false;
         _right.title = _fruitName;
         _left.title = _anotherFruitName;
+        [self setAnswerColor];
+        [self setAnotherColor];
+    }
+}
+
+- (void)setAnswerColor {
+    int rngColor = arc4random() % 6;
+    if (_answerLeft) {
+        if (0 <= rngColor <= 1) {
+            _left.label.color = [CCColor orangeColor];
+        } else if (2 <= rngColor <= 3) {
+            _left.label.color = [CCColor purpleColor];
+        } else if (rngColor == 4) {
+            _left.label.color = [CCColor redColor];
+        } else {
+            _left.label.color = [CCColor yellowColor];
+        }
+    } else {
+        if (0 <= rngColor <= 1) {
+            _right.label.color = [CCColor orangeColor];
+        } else if (2 <= rngColor <= 3) {
+            _right.label.color = [CCColor purpleColor];
+        } else if (rngColor == 4) {
+            _right.label.color = [CCColor redColor];
+        } else {
+            _right.label.color = [CCColor yellowColor];
+        }
+    }
+}
+
+- (void)setAnotherColor {
+    int rngColor = arc4random() % 6;
+    if (_answerLeft) {
+        if (0 <= rngColor <= 1) {
+            _right.label.color = [CCColor redColor];
+        } else if (2 <= rngColor <= 3) {
+            _right.label.color = [CCColor yellowColor];
+        } else if (rngColor == 4) {
+            _right.label.color = [CCColor orangeColor];
+        } else {
+            _right.label.color = [CCColor purpleColor];
+        }
+    } else {
+        if (0 <= rngColor <= 1) {
+            _left.label.color = [CCColor redColor];
+        } else if (2 <= rngColor <= 3) {
+            _left.label.color = [CCColor yellowColor];
+        } else if (rngColor == 4) {
+            _left.label.color = [CCColor orangeColor];
+        } else {
+            _left.label.color = [CCColor purpleColor];
+        }
     }
 }
 

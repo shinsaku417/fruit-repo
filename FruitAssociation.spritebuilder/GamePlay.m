@@ -47,7 +47,7 @@
     _left.visible = false;
     _right.visible = false;
     _score = 0;
-    _fruitArray = [NSArray arrayWithObjects:@"apple",@"orange",@"banana",@"lemon",@"grapes",@"cherry", nil];
+    _fruitArray = [NSArray arrayWithObjects:@"Apple",@"Orange",@"Banana",@"Lemon",@"Grapes",@"Cherry", nil];
     int rngInitial = arc4random() % 6;
     switch(rngInitial) {
         case 0:
@@ -184,24 +184,32 @@
 - (void)setAnswerColor {
     int rngColor = arc4random() % 6;
     if (_answerLeft) {
-        if (0 <= rngColor <= 1) {
-            _left.label.color = [CCColor orangeColor];
-        } else if (2 <= rngColor <= 3) {
-            _left.label.color = [CCColor purpleColor];
+        if (0 <= rngColor && rngColor <= 1) {
+            [_left setColor:[CCColor orangeColor]];
+            [_left setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
+        } else if (2 <= rngColor && rngColor <= 3) {
+            [_left setColor:[CCColor purpleColor]];
+            [_left setLabelColor:[CCColor purpleColor] forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
-            _left.label.color = [CCColor redColor];
+            [_left setColor:[CCColor redColor]];
+            [_left setLabelColor:[CCColor redColor] forState:CCControlStateHighlighted];
         } else {
-            _left.label.color = [CCColor yellowColor];
+            [_left setColor:[CCColor yellowColor]];
+            [_left setLabelColor:[CCColor yellowColor] forState:CCControlStateHighlighted];
         }
     } else {
-        if (0 <= rngColor <= 1) {
-            _right.label.color = [CCColor orangeColor];
-        } else if (2 <= rngColor <= 3) {
-            _right.label.color = [CCColor purpleColor];
+        if (0 <= rngColor && rngColor <= 1) {
+            [_right setColor:[CCColor orangeColor]];
+            [_right setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
+        } else if (2 <= rngColor && rngColor <= 3) {
+            [_right setColor:[CCColor purpleColor]];
+            [_right setLabelColor:[CCColor purpleColor] forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
-            _right.label.color = [CCColor redColor];
+            [_right setColor:[CCColor redColor]];
+            [_right setLabelColor:[CCColor redColor] forState:CCControlStateHighlighted];
         } else {
-            _right.label.color = [CCColor yellowColor];
+            [_right setColor:[CCColor yellowColor]];
+            [_right setLabelColor:[CCColor yellowColor] forState:CCControlStateHighlighted];
         }
     }
 }
@@ -209,24 +217,32 @@
 - (void)setAnotherColor {
     int rngColor = arc4random() % 6;
     if (_answerLeft) {
-        if (0 <= rngColor <= 1) {
-            _right.label.color = [CCColor redColor];
-        } else if (2 <= rngColor <= 3) {
-            _right.label.color = [CCColor yellowColor];
+        if (0 <= rngColor && rngColor <= 1) {
+            [_right setColor:[CCColor orangeColor]];
+            [_right setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
+        } else if (2 <= rngColor && rngColor <= 3) {
+            [_right setColor:[CCColor purpleColor]];
+            [_right setLabelColor:[CCColor purpleColor] forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
-            _right.label.color = [CCColor orangeColor];
+            [_right setColor:[CCColor redColor]];
+            [_right setLabelColor:[CCColor redColor] forState:CCControlStateHighlighted];
         } else {
-            _right.label.color = [CCColor purpleColor];
+            [_right setColor:[CCColor yellowColor]];
+            [_right setLabelColor:[CCColor yellowColor] forState:CCControlStateHighlighted];
         }
     } else {
-        if (0 <= rngColor <= 1) {
-            _left.label.color = [CCColor redColor];
-        } else if (2 <= rngColor <= 3) {
-            _left.label.color = [CCColor yellowColor];
+        if (0 <= rngColor && rngColor <= 1) {
+            [_left setColor:[CCColor orangeColor]];
+            [_left setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
+        } else if (2 <= rngColor && rngColor <= 3) {
+            [_left setColor:[CCColor purpleColor]];
+            [_left setLabelColor:[CCColor purpleColor] forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
-            _left.label.color = [CCColor orangeColor];
+            [_left setColor:[CCColor redColor]];
+            [_left setLabelColor:[CCColor redColor] forState:CCControlStateHighlighted];
         } else {
-            _left.label.color = [CCColor purpleColor];
+            [_left setColor:[CCColor yellowColor]];
+            [_left setLabelColor:[CCColor yellowColor] forState:CCControlStateHighlighted];
         }
     }
 }

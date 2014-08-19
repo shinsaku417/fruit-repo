@@ -38,7 +38,6 @@
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		F13CCD4119A2FA9900B7C501 /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CCD4019A2FA9900B7C501 /* GamePlay.m */; };
 		F13CCD5819A3EEDB00B7C501 /* Recap.m in Sources */ = {isa = PBXBuildFile; fileRef = F13CCD5719A3EEDB00B7C501 /* Recap.m */; };
-		F13CCD5F19A40AA500B7C501 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F13CCD5E19A40AA500B7C501 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +96,6 @@
 		F13CCD4019A2FA9900B7C501 /* GamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamePlay.m; sourceTree = "<group>"; };
 		F13CCD5619A3EEDB00B7C501 /* Recap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recap.h; sourceTree = "<group>"; };
 		F13CCD5719A3EEDB00B7C501 /* Recap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recap.m; sourceTree = "<group>"; };
-		F13CCD5E19A40AA500B7C501 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +139,6 @@
 				F13CCD4019A2FA9900B7C501 /* GamePlay.m */,
 				F13CCD5619A3EEDB00B7C501 /* Recap.h */,
 				F13CCD5719A3EEDB00B7C501 /* Recap.m */,
-				F13CCD5E19A40AA500B7C501 /* README.md */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -317,7 +314,6 @@
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
-				F13CCD5F19A40AA500B7C501 /* README.md in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,

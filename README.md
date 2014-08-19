@@ -1,7 +1,7 @@
 #Fruity Memory
 ##Fruit Naming Game with a Twist
 
-##Check out [http://shinuesugi.com/#fruity-memory](http://shinuesugi.com/#fruity-memory) for Screenshots!!
+##Screenshots @ [http://shinuesugi.com/#fruity-memory](http://shinuesugi.com/#fruity-memory)
 
 ##Gameplay
 * Answer what previous fruit was on the screen by tapping one of the 2 buttons

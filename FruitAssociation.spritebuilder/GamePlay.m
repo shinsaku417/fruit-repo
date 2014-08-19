@@ -36,6 +36,9 @@
     CCLabelTTF *_previousLabel;
     CCButton *_left;
     CCButton *_right;
+    
+    CCColor *_red;
+    CCColor *_purple;
 }
 
 // When Entering onto the scene
@@ -44,6 +47,7 @@
 // 3. Set anotherChoiceName (false answer)
 - (void)onEnter {
     [super onEnter];
+    _red = [CCColor colorWithRed:1 green:0.1 blue:0.1];
     _left.visible = false;
     _right.visible = false;
     _score = 0;
@@ -188,11 +192,11 @@
             [_left setColor:[CCColor orangeColor]];
             [_left setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
         } else if (2 <= rngColor && rngColor <= 3) {
-            [_left setColor:[CCColor purpleColor]];
-            [_left setLabelColor:[CCColor purpleColor] forState:CCControlStateHighlighted];
+            [_left setColor:[CCColor magentaColor]];
+            [_left setLabelColor:[CCColor magentaColor] forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
-            [_left setColor:[CCColor redColor]];
-            [_left setLabelColor:[CCColor redColor] forState:CCControlStateHighlighted];
+            [_left setColor:_red];
+            [_left setLabelColor:_red forState:CCControlStateHighlighted];
         } else {
             [_left setColor:[CCColor yellowColor]];
             [_left setLabelColor:[CCColor yellowColor] forState:CCControlStateHighlighted];
@@ -202,11 +206,11 @@
             [_right setColor:[CCColor orangeColor]];
             [_right setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
         } else if (2 <= rngColor && rngColor <= 3) {
-            [_right setColor:[CCColor purpleColor]];
-            [_right setLabelColor:[CCColor purpleColor] forState:CCControlStateHighlighted];
+            [_right setColor:[CCColor magentaColor]];
+            [_right setLabelColor:[CCColor magentaColor] forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
-            [_right setColor:[CCColor redColor]];
-            [_right setLabelColor:[CCColor redColor] forState:CCControlStateHighlighted];
+            [_right setColor:_red];
+            [_right setLabelColor:_red forState:CCControlStateHighlighted];
         } else {
             [_right setColor:[CCColor yellowColor]];
             [_right setLabelColor:[CCColor yellowColor] forState:CCControlStateHighlighted];
@@ -221,11 +225,11 @@
             [_right setColor:[CCColor orangeColor]];
             [_right setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
         } else if (2 <= rngColor && rngColor <= 3) {
-            [_right setColor:[CCColor purpleColor]];
-            [_right setLabelColor:[CCColor purpleColor] forState:CCControlStateHighlighted];
+            [_right setColor:[CCColor magentaColor]];
+            [_right setLabelColor:[CCColor magentaColor] forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
-            [_right setColor:[CCColor redColor]];
-            [_right setLabelColor:[CCColor redColor] forState:CCControlStateHighlighted];
+            [_right setColor:_red];
+            [_right setLabelColor:_red forState:CCControlStateHighlighted];
         } else {
             [_right setColor:[CCColor yellowColor]];
             [_right setLabelColor:[CCColor yellowColor] forState:CCControlStateHighlighted];
@@ -235,11 +239,11 @@
             [_left setColor:[CCColor orangeColor]];
             [_left setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
         } else if (2 <= rngColor && rngColor <= 3) {
-            [_left setColor:[CCColor purpleColor]];
-            [_left setLabelColor:[CCColor purpleColor] forState:CCControlStateHighlighted];
+            [_left setColor:[CCColor magentaColor]];
+            [_left setLabelColor:[CCColor magentaColor] forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
-            [_left setColor:[CCColor redColor]];
-            [_left setLabelColor:[CCColor redColor] forState:CCControlStateHighlighted];
+            [_left setColor:_red];
+            [_left setLabelColor:_red forState:CCControlStateHighlighted];
         } else {
             [_left setColor:[CCColor yellowColor]];
             [_left setLabelColor:[CCColor yellowColor] forState:CCControlStateHighlighted];

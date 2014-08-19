@@ -39,6 +39,16 @@
     
     CCColor *_red;
     CCColor *_purple;
+    
+    NSMutableArray *_throwArray;
+    
+    int _life;
+    CCSprite *_lifeOne;
+    CCSprite *_lifeTwo;
+    CCSprite *_lifeThree;
+    
+    CCLabelTTF *_timer;
+    int _time;
 }
 
 // When Entering onto the scene
@@ -50,9 +60,13 @@
     _red = [CCColor colorWithRed:1 green:0.1 blue:0.1];
     _left.visible = false;
     _right.visible = false;
+    _life = 3;
     _score = 0;
+    _time = 60;
     _fruitArray = [NSArray arrayWithObjects:@"Apple",@"Orange",@"Banana",@"Lemon",@"Grapes",@"Cherry", nil];
+    _throwArray = [NSMutableArray array];
     int rngInitial = arc4random() % 6;
+
     switch(rngInitial) {
         case 0:
             [_fruit setSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"image/apple.png"]];
@@ -97,6 +111,7 @@
         _previousLabel.visible = true;
         _left.visible = true;
         _right.visible = true;
+        [self schedule:@selector(timerUpdate) interval:1.f];
     }
     [self setAnswer];
     [self generateFruit];
@@ -255,12 +270,14 @@
     if (_answerLeft) {
         _score++;
         _scoreLabel.string = [NSString stringWithFormat:@"%i", _score];
-        [self next];
     } else {
-        NSLog(@"You lose!");
-        CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-        CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
-        [[CCDirector sharedDirector] presentScene:gameplayScene withTransition:transition];
+        [self loseLife];
+    }
+    if (_life == 0) {
+        [self nextScene];
+    } else {
+        [self throwLeft];
+        [self next];
     }
 }
 
@@ -268,12 +285,70 @@
     if (!_answerLeft) {
         _score++;
         _scoreLabel.string = [NSString stringWithFormat:@"%i", _score];
-        [self next];
     } else {
-        NSLog(@"You lose!");
+        [self loseLife];
+    }
+    if (_life == 0) {
+        [self nextScene];
+    } else {
+        [self throwRight];
+        [self next];
+    }
+}
+
+- (void)loseLife {
+    _life--;
+    CCActionFadeOut *fadeOut = [CCActionFadeOut actionWithDuration:0.15f];
+    if (_life == 2) {
+        [_lifeOne runAction:fadeOut];
+    } else if (_life == 1) {
+        [_lifeTwo runAction:fadeOut];
+    }  else {
+        [_lifeThree runAction:fadeOut];
+    }
+}
+
+- (void)throwLeft {
+    CCSprite *throw = [CCSprite spriteWithTexture:[_fruit texture]];
+    throw.positionType = CCPositionTypeNormalized;
+    throw.position = ccp(0.5,0.65);
+    [self addChild:throw];
+    CCActionMoveTo *move = [CCActionMoveTo actionWithDuration:0.2f position:ccp(throw.position.x - 1,throw.position.y)];
+    [throw runAction:move];
+    [_throwArray addObject:throw];
+}
+
+- (void)throwRight {
+    CCSprite *throw = [CCSprite spriteWithTexture:[_fruit texture]];
+    throw.positionType = CCPositionTypeNormalized;
+    throw.position = ccp(0.5,0.65);
+    [self addChild:throw];
+    CCActionMoveTo *move = [CCActionMoveTo actionWithDuration:0.2f position:ccp(throw.position.x + 1,throw.position.y)];
+    [throw runAction:move];
+    [_throwArray addObject:throw];
+
+}
+
+- (void)nextScene {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
+    [[CCDirector sharedDirector] presentScene:gameplayScene withTransition:transition];
+}
+
+- (void)update:(CCTime)delta {
+    for (CCSprite *throw in _throwArray) {
+        if (throw.position.x < 0 || throw.position.x > 1) {
+            [throw removeFromParentAndCleanup:TRUE];
+        }
+    }
+}
+
+- (void)timerUpdate {
+    _time--;
+    _timer.string = [NSString stringWithFormat:@"%i", _time];
+    if (_time == 0) {
         CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-        CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];
-        [[CCDirector sharedDirector] presentScene:gameplayScene withTransition:transition];
+        [[CCDirector sharedDirector] presentScene:gameplayScene];
     }
 }
 

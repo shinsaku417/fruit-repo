@@ -10,4 +10,6 @@
 
 @interface GamePlay : CCScene
 
+@property (nonatomic, assign) int score;
+
 @end

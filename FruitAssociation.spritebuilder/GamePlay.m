@@ -37,16 +37,20 @@
     CCButton *_left;
     CCButton *_right;
     
+    // Custom colors
     CCColor *_red;
     CCColor *_purple;
     
+    // Cleanup array
     NSMutableArray *_throwArray;
     
+    // Life System
     int _life;
     CCSprite *_lifeOne;
     CCSprite *_lifeTwo;
     CCSprite *_lifeThree;
     
+    // Timer system
     CCLabelTTF *_timer;
     int _time;
 }
@@ -57,7 +61,11 @@
 // 3. Set anotherChoiceName (false answer)
 - (void)onEnter {
     [super onEnter];
-    _red = [CCColor colorWithRed:1 green:0.1 blue:0.1];
+    
+    // Custom colors for red and purple
+    _red = [CCColor colorWithRed:1 green:0.25 blue:0.25];
+    _purple = [CCColor colorWithRed:1 green:0.3 blue:1];
+    
     _left.visible = false;
     _right.visible = false;
     _life = 3;
@@ -111,6 +119,8 @@
         _previousLabel.visible = true;
         _left.visible = true;
         _right.visible = true;
+        
+        // Start timer when ready button is pressed
         [self schedule:@selector(timerUpdate) interval:1.f];
     }
     [self setAnswer];
@@ -200,6 +210,9 @@
     }
 }
 
+// Set Color to the answer
+// 2/6 orange, 2/6 purple
+// 1/6 red, 1/6 yellow
 - (void)setAnswerColor {
     int rngColor = arc4random() % 6;
     if (_answerLeft) {
@@ -207,8 +220,8 @@
             [_left setColor:[CCColor orangeColor]];
             [_left setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
         } else if (2 <= rngColor && rngColor <= 3) {
-            [_left setColor:[CCColor magentaColor]];
-            [_left setLabelColor:[CCColor magentaColor] forState:CCControlStateHighlighted];
+            [_left setColor:_purple];
+            [_left setLabelColor:_purple forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
             [_left setColor:_red];
             [_left setLabelColor:_red forState:CCControlStateHighlighted];
@@ -221,8 +234,8 @@
             [_right setColor:[CCColor orangeColor]];
             [_right setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
         } else if (2 <= rngColor && rngColor <= 3) {
-            [_right setColor:[CCColor magentaColor]];
-            [_right setLabelColor:[CCColor magentaColor] forState:CCControlStateHighlighted];
+            [_right setColor:_purple];
+            [_right setLabelColor:_purple forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
             [_right setColor:_red];
             [_right setLabelColor:_red forState:CCControlStateHighlighted];
@@ -233,6 +246,9 @@
     }
 }
 
+// Set Color to the another choice
+// 2/6 red, 2/6 yellow
+// 1/6 orange, 1/6 purple
 - (void)setAnotherColor {
     int rngColor = arc4random() % 6;
     if (_answerLeft) {
@@ -240,8 +256,8 @@
             [_right setColor:[CCColor orangeColor]];
             [_right setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
         } else if (2 <= rngColor && rngColor <= 3) {
-            [_right setColor:[CCColor magentaColor]];
-            [_right setLabelColor:[CCColor magentaColor] forState:CCControlStateHighlighted];
+            [_right setColor:_purple];
+            [_right setLabelColor:_purple forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
             [_right setColor:_red];
             [_right setLabelColor:_red forState:CCControlStateHighlighted];
@@ -254,8 +270,8 @@
             [_left setColor:[CCColor orangeColor]];
             [_left setLabelColor:[CCColor orangeColor] forState:CCControlStateHighlighted];
         } else if (2 <= rngColor && rngColor <= 3) {
-            [_left setColor:[CCColor magentaColor]];
-            [_left setLabelColor:[CCColor magentaColor] forState:CCControlStateHighlighted];
+            [_left setColor:_purple];
+            [_left setLabelColor:_purple forState:CCControlStateHighlighted];
         } else if (rngColor == 4) {
             [_left setColor:_red];
             [_left setLabelColor:_red forState:CCControlStateHighlighted];
@@ -266,6 +282,10 @@
     }
 }
 
+// When pressed left button
+// 1. Check answer is on left. If yes, add score, if no, lose life
+// 2. If life = 0, lose
+// 3. If life != 0, throw original sprite to the left, then generate new one
 - (void)left {
     if (_answerLeft) {
         _score++;
@@ -281,6 +301,10 @@
     }
 }
 
+// When pressed right button
+// 1. Check answer is on right. If yes, add score, if no, lose life
+// 2. If life = 0, lose
+// 3. If life != 0, throw original sprite to the right, then generate new one
 - (void)right {
     if (!_answerLeft) {
         _score++;
@@ -296,6 +320,9 @@
     }
 }
 
+// When you lose life
+// 1. Decrease life by 1
+// 2. Fadeout each heart symbol given life value
 - (void)loseLife {
     _life--;
     CCActionFadeOut *fadeOut = [CCActionFadeOut actionWithDuration:0.15f];
@@ -308,6 +335,7 @@
     }
 }
 
+// Throw original fruit to the left
 - (void)throwLeft {
     CCSprite *throw = [CCSprite spriteWithTexture:[_fruit texture]];
     throw.positionType = CCPositionTypeNormalized;
@@ -318,6 +346,7 @@
     [_throwArray addObject:throw];
 }
 
+// Throw original fruit to the right
 - (void)throwRight {
     CCSprite *throw = [CCSprite spriteWithTexture:[_fruit texture]];
     throw.positionType = CCPositionTypeNormalized;
@@ -329,6 +358,7 @@
 
 }
 
+// Go to the next scene after loss
 - (void)nextScene {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     CCTransition *transition = [CCTransition transitionFadeWithDuration:0.8f];

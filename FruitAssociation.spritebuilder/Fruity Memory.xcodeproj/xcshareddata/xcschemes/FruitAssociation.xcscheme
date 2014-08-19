@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
                BuildableName = "FruitAssociation.app"
-               BlueprintName = "FruitAssociation"
-               ReferencedContainer = "container:FruitAssociation.xcodeproj">
+               BlueprintName = "Fruity Memory"
+               ReferencedContainer = "container:Fruity Memory.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
             BuildableName = "FruitAssociation.app"
-            BlueprintName = "FruitAssociation"
-            ReferencedContainer = "container:FruitAssociation.xcodeproj">
+            BlueprintName = "Fruity Memory"
+            ReferencedContainer = "container:Fruity Memory.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
             BuildableName = "FruitAssociation.app"
-            BlueprintName = "FruitAssociation"
-            ReferencedContainer = "container:FruitAssociation.xcodeproj">
+            BlueprintName = "Fruity Memory"
+            ReferencedContainer = "container:Fruity Memory.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,8 +76,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B77F1B2D17B978D7009739AE"
             BuildableName = "FruitAssociation.app"
-            BlueprintName = "FruitAssociation"
-            ReferencedContainer = "container:FruitAssociation.xcodeproj">
+            BlueprintName = "Fruity Memory"
+            ReferencedContainer = "container:Fruity Memory.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
